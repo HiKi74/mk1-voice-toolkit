@@ -74,8 +74,20 @@ $dotnet = Get-Command dotnet -ErrorAction SilentlyContinue
 if (-not $dotnet) { Say '未检测到 .NET 运行时，需要先安装 .NET 9 Runtime: https://dotnet.microsoft.com/download/dotnet/9.0' 'Red'; exit 1 }
 Say "  ✓ 解包工具 mkextract" 'Green'
 
-if (Test-Path -LiteralPath $Vgm) { Say '  ✓ vgmstream-cli（wem → wav）' 'Green' }
-else { Say '  ! 没找到 bin\vgmstream\vgmstream-cli.exe，导出将只保留 .wem 不转 wav' 'Yellow' }
+if (Test-Path -LiteralPath $Vgm) {
+    Say '  ✓ vgmstream-cli（wem → wav）' 'Green'
+} else {
+    Say '  ! 没找到 vgmstream-cli（用来把 .wem 转成 .wav）' 'Yellow'
+    $dlScript = Join-Path $Root 'tools\获取vgmstream.ps1'
+    $wantDownload = $true
+    if (-not $Yes) { $wantDownload = AskBool '  现在自动下载吗（约 15 MB，取自 GitHub 官方发布）' $true }
+    if ($wantDownload -and (Test-Path -LiteralPath $dlScript)) {
+        Say '  正在下载 vgmstream …' 'Cyan'
+        try { & $dlScript } catch { Say ('  ! 下载失败: ' + $_.Exception.Message) 'Yellow' }
+    }
+    if (Test-Path -LiteralPath $Vgm) { Say '  ✓ vgmstream 已就绪' 'Green' }
+    else { Say '  ! 仍缺少 vgmstream，本次只保留 .wem（之后可手动运行 tools\获取vgmstream.ps1）' 'Yellow' }
+}
 
 $python = Get-Command python -ErrorAction SilentlyContinue
 if (-not $python) { $python = Get-Command py -ErrorAction SilentlyContinue }
