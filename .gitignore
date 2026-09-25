@@ -1,0 +1,36 @@
+# ---- 运行时产物 ----
+cache/
+配置.json
+temp_*/
+output/
+输出/
+
+# ---- .NET 构建中间件 ----
+**/obj/
+src/**/bin/
+bin/mkextract/*.pdb
+
+# ---- 不随仓库分发的第三方二进制 ----
+# vgmstream 请用 tools/获取vgmstream.ps1 自行获取
+bin/vgmstream/
+# Oodle 运行库为专有库，绝不入库
+**/oo2core*.dll
+**/oodle-data-shared.dll
+
+# ---- 导出结果与压缩包 ----
+*.wav
+*.wem
+*.bnk
+*.zip
+*.rar
+*.7z
+
+# ---- 系统 / 编辑器 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vs/
+.vscode/
+*.user
+__pycache__/
+*.pyc
