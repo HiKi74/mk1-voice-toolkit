@@ -1,5 +1,11 @@
 # MK1 Voice Toolkit · 《真人快打1》语音导出向导
 
+[![下载最新版](https://img.shields.io/github/v/release/HiKi74/mk1-voice-toolkit?style=for-the-badge&color=2ea44f&logo=github&label=Download)](https://github.com/HiKi74/mk1-voice-toolkit/releases/latest)
+&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+**⬇️ [点这里下载最新版](https://github.com/HiKi74/mk1-voice-toolkit/releases/latest)** · 约 3.8 MB · 解压即用（首次运行会自动下载 vgmstream）
+
 一键导出《真人快打 1》(Mortal Kombat 1 / 内部项目名 **MK12**) 里任意角色的**全部语音**：
 自动按游戏**官方台词**给文件命名，并生成**官方英文 + 官方简中**字幕、整段合集。
 
@@ -30,7 +36,8 @@
 
 ## 🚀 快速开始
 
-1. 下载本仓库（Code → Download ZIP，或 `git clone`）
+1. **下载**：点顶部 **Download** 按钮（或 [Releases 页面](https://github.com/HiKi74/mk1-voice-toolkit/releases/latest)）拿发布包；
+   想跟源码就用 Code → Download ZIP 或 `git clone`
 2. 双击 **`启动向导.bat`**（英文入口：`start-wizard.bat`）
 3. 按提示走 6 步：
 
